@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav className="bg-gray-800 bg-opacity-50 backdrop-blur-sm py-4 px-6 md:px-10  lg:px-16">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-white font-bold text-2xl">
-          KisanSamarth
+          KisaanSamarth
         </Link>
 
         <div className="hidden sm:flex space-x-4 md:space-x-6">

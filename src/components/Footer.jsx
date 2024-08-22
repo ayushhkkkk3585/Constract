@@ -25,8 +25,8 @@ const Footer = () => {
               <div>
                 <h2 className="text-white text-lg font-bold mb-4">FOOTER</h2>
                 <p className="text-sm text-gray-400">
-                  "Welcome to Springdale Public School, where we nurture young
-                  minds for a brighter future."
+                  "Welcome to KisaanSamarth, where we nurture plants and crops
+                  oraganiically."
                 </p>
               </div>
               <div>

@@ -12,6 +12,10 @@ const pageVariants = {
 };
 
 // Define text animation variants
+const textVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+};
 
 const Buyers_list = () => {
   return (
