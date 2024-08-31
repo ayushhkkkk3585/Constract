@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 
 const Card = () => {
@@ -71,6 +72,14 @@ const Card = () => {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+  const generatePhoneNumber = () => {
+    const firstDigit = Math.floor(Math.random() * 4) + 6; // Generates 6, 7, 8, or 9
+    const restOfNumber = Math.floor(Math.random() * 1000000000)
+      .toString()
+      .padStart(9, "0");
+    const phoneNumber = `${firstDigit}${restOfNumber}`;
+    return phoneNumber.replace(/(\d{5})(\d{5})/, "$1 $2");
+  };
 
   return (
     <>
@@ -109,47 +118,75 @@ const Card = () => {
           />
         </div>
       </div>
-
       <div className="card-list space-y-4 p-5 flex flex-col items-center">
-        {currentUsers.map((user, index) => (
-          <div
-            key={index}
-            className="card flex bg-white bg-opacity-90 rounded-lg shadow-lg overflow-hidden w-full sm:flex-row sm:w-3/4 md:w-2/3 lg:w-1/2"
-          >
-            <div className="card-image w-24 h-24 sm:w-36 sm:h-36 flex-shrink-0">
-              <img
-                src="avataaa.png"
-                alt="Profile"
-                className="w-full h-full object-cover rounded-full mt-1 ml-1 sm:rounded-none sm:rounded-l-lg"
-              />
-            </div>
+        {currentUsers.map((user, index) => {
+          const phoneNumber = generatePhoneNumber();
 
-            <div className="card-content flex-grow p-6">
-              <h3 className="name text-xl font-bold mb-2">{user.name}</h3>
-              <p className="description text-gray-700 mb-4">
-                {user.description}
-              </p>
-              <div className="rating text-yellow-500 mb-4">
-                {[...Array(user.rating)].map((_, index) => (
-                  <span key={index} className="star">
-                    &#9733;
-                  </span>
-                ))}
+          return (
+            <div
+              key={index}
+              className="card flex flex-col bg-white bg-opacity-90 rounded-lg shadow-lg overflow-hidden w-full sm:flex-row sm:w-5/6 md:w-4/5 lg:w-2/3 xl:w-1/2"
+            >
+              <div className="card-image w-full h-36 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 flex-shrink-0">
+                <img
+                  src="avataaa.png"
+                  alt="Profile"
+                  className="w-full h-full object-contain sm:rounded-none sm:rounded-l-lg"
+                />
               </div>
-              <div className="tags">
-                {user.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="tag bg-gray-200 text-gray-700 px-2 py-1 mx-1 rounded-lg text-sm"
-                  >
-                    {tag}
-                  </span>
-                ))}
+
+              <div className="card-content flex-grow p-6">
+                <h3 className="name text-xl font-bold mb-2">{user.name}</h3>
+                <p className="description text-gray-700 mb-4">
+                  {user.description}
+                </p>
+                <div className="rating text-yellow-500 mb-4">
+                  {[...Array(user.rating)].map((_, index) => (
+                    <span key={index} className="star">
+                      &#9733;
+                    </span>
+                  ))}
+                </div>
+                <div className="tags mb-4">
+                  {user.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="tag bg-gray-200 text-gray-700 px-2 py-1 mx-1 rounded-lg text-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button className="call-now bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded flex-grow">
+                    Call Now: {phoneNumber}
+                  </button>
+                  <Link to="/contract">
+                    <button className="proceed-to-contract bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center justify-center flex-grow">
+                      <svg
+                        className="w-5 h-5 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M9 5l7 7-7 7"
+                        ></path>
+                      </svg>
+                      Proceed to Contract
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
+
       <div className="pagination flex justify-center space-x-4 my-4">
         {Array.from({ length: totalPages }, (_, index) => (
           <button

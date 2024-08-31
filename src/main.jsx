@@ -5,6 +5,8 @@ import "./index.css";
 import { Form, RouterProvider, createBrowserRouter } from "react-router-dom";
 // import LandingPage from './components/LandingPage.jsx'
 import Buyers_list from "./components/Buyers_list.jsx";
+import Contract from "./components/Contract.jsx";
+import Login from "./components/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,14 @@ const router = createBrowserRouter([
   {
     path: "/potential-buyers",
     element: <Buyers_list />,
+  },
+  {
+    path: "/contract",
+    element: <Contract/>,
+  },
+  {
+    path: "/login",
+    element: <Login/>,
   },
   
 ]);

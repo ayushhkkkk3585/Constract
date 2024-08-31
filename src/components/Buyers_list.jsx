@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import bgimage from "../../public/farmer-bg.png";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 // Define page transition variants
 const pageVariants = {
@@ -36,10 +37,6 @@ const Buyers_list = () => {
         >
           <Navbar />
         </motion.div>
-
-        
-
-        
 
         <motion.div
           className="flex-grow px-4 py-2"

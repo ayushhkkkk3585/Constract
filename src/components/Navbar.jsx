@@ -15,17 +15,17 @@ const Navbar = () => {
           KisaanSamarth
         </Link>
 
-        <div className="hidden sm:flex space-x-4 md:space-x-6">
-          <Link to="/" className="text-white font-bold text-2xl">
+        <div className="hidden sm:flex space-x-4 md:space-x-6 text-lg gap-2">
+          <Link to="/" className="text-white font-semibold">
             Home
           </Link>
-          <Link to="/" className="text-white font-bold text-2xl">
+          <Link to="/" className="text-white font-semibold">
             About US
           </Link>
-          <Link to="/" className="text-white font-bold text-2xl">
+          <Link to="/" className="text-white font-semibold">
             Marketplace
           </Link>
-          <Link to="/" className="text-white font-bold text-2xl">
+          <Link to="/" className="text-white font-semibold">
             Statistics
           </Link>
         </div>
@@ -52,31 +52,19 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="sm:hidden mt-4">
-          <a
-            href="/"
-            className="block text-white font-bold hover:text-black py-2 text-lg"
-          >
+        <div className="sm:hidden mt-4 flex flex-col text-base gap-2">
+          <Link to="/" className="text-white font-semibold text-base">
             Home
-          </a>
-          <a
-            href="/about"
-            className="block text-white font-bold hover:text-black py-2 text-lg"
-          >
-            About us
-          </a>
-          <a
-            href="/marketplace"
-            className="block text-white font-bold hover:text-black py-2 text-lg"
-          >
+          </Link>
+          <Link to="/" className="text-white font-semibold text-base">
+            About US
+          </Link>
+          <Link to="/" className="text-white font-semibold text-base">
             Marketplace
-          </a>
-          <a
-            href="/statistics"
-            className="block text-white font-bold hover:text-black py-2 text-lg"
-          >
+          </Link>
+          <Link to="/" className="text-white font-semibold text-base">
             Statistics
-          </a>
+          </Link>
         </div>
       )}
     </nav>

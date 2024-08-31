@@ -38,7 +38,7 @@ const LandingPage = () => {
               reliable produce for your business.
             </motion.p>
             <div className="mt-8">
-              <Link to="/potential-buyers">
+              <Link to="/login">
                 <motion.button
                   className="px-4 py-2 sm:px-6 sm:py-3 bg-green-600 text-white rounded-full hover:bg-green-700"
                   whileHover={{ scale: 1.1 }}
